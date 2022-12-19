@@ -4,6 +4,7 @@ import { Products } from "./components/products/Products";
 import { words } from "./words";
 import data from "./data.json";
 import { useState } from "react";
+import Filter from "./components/Filter/Filter";
 function App() {
   const [productData, setProductData] = useState(data);
   console.log(productData);
@@ -13,7 +14,7 @@ function App() {
       <main>
         <div className="wrapper">
           <Products productData={productData} />
-          <div className="filter-wrapper">filter</div>
+          <Filter />
         </div>
       </main>
       <Footer />
