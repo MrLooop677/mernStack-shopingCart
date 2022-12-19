@@ -1,7 +1,8 @@
 import React from "react";
-import "../../css/Footer/Footer.css";
+import "../../css/Footer/footer.css";
+import { words } from "../../words";
 const Footer = () => {
-  return <footer>&copy; copyright by Eslam Mahmoud 2022</footer>;
+  return <footer>{words.footer}</footer>;
 };
 
 export default Footer;
