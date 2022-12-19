@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../css/products/Products.css";
+import ProductModal from "./ProductModal";
 export const Products = ({ productData }) => {
+  const [product, setProduct] = useState("");
+  const openModal = (product) => {
+    setProduct(product);
+  };
+  const closeModal = (_) => setProduct(false);
   return (
     <div className="products-wrapper">
       {productData.map((product) => (
         <div className="product-item" key={product.id}>
-          <a href="#">
+          <a href="#" onClick={() => openModal(product)}>
             <img src={product.imageUrl} alt={product.title} />
           </a>
           <div className="product-desc">
@@ -15,6 +21,7 @@ export const Products = ({ productData }) => {
           <button>Add To Cart </button>
         </div>
       ))}
+      <ProductModal product={product} closeModal={closeModal} />
     </div>
   );
 };
