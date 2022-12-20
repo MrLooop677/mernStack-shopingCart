@@ -13,7 +13,7 @@
     "imageUrl": "https://img.jakpost.net/c/2017/03/15/2017_03_15_23480_1489559147._large.jpg",
     "desc": "This Is Product 2",
     "price": 50,
-    "size": ["S", "M"]
+    "size": ["XS", "M"]
   },
   {
     "id": "id3",
@@ -21,7 +21,7 @@
     "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStE40pWkS0kREns_mESXDh-Wm9uoXUbP0img&usqp=CAU",
     "desc": "This Is Product 3",
     "price": 20,
-    "size": ["S", "XL"]
+    "size": ["S", "XXL"]
   },
   {
     "id": "id4",
@@ -29,6 +29,6 @@
     "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2Q2aLUgdr2u8b3_DT9xt454HwlxjsEyji7g&usqp=CAU",
     "desc": "This Is Product 4",
     "price": 45,
-    "size": ["XS", "L", "M"]
+    "size": ["XL", "L", "M"]
   }
 ]
