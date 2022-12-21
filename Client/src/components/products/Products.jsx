@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../css/products/Products.css";
 import ProductModal from "./ProductModal";
-export const Products = ({ productData }) => {
+export const Products = ({ productData, addToCart }) => {
   const [product, setProduct] = useState("");
   const openModal = (product) => {
     setProduct(product);
@@ -18,7 +18,7 @@ export const Products = ({ productData }) => {
             <p>{product.title}</p>
             <span>${product.price}</span>
           </div>
-          <button>Add To Cart </button>
+          <button onClick={() => addToCart(product)}>Add To Cart </button>
         </div>
       ))}
       <ProductModal product={product} closeModal={closeModal} />
