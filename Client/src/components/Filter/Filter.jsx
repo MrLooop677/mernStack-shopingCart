@@ -1,13 +1,19 @@
 import React from "react";
 import "../../css/Filter/Filter.css";
-const Filter = ({ size, order, HandleBySize, HandleByOrder }) => {
+const Filter = ({
+  size,
+  order,
+  HandleBySize,
+  HandleByOrder,
+  productNumber,
+}) => {
   return (
     <div className="filter-wrapper">
       <h2 className="filter-title"> Filter </h2>
-      <div className="num-of-products">Number of Products 5</div>
+      <div className="num-of-products">Number of Products {productNumber}</div>
       <div className="filter-by-size">
         <span>Filter</span>
-        <select className="filter-select" onChange={HandleBySize}>
+        <select className="filter-select" value={size} onChange={HandleBySize}>
           <option value="ALL">ALL</option>
           <option value="XS">XS</option>
           <option value="S">S</option>
@@ -19,7 +25,11 @@ const Filter = ({ size, order, HandleBySize, HandleByOrder }) => {
       </div>
       <div className="filter-by-size">
         <span>Order</span>
-        <select className="filter-select" onChange={HandleByOrder}>
+        <select
+          className="filter-select"
+          value={order}
+          onChange={HandleByOrder}
+        >
           <option value="latest">Latest</option>
           <option value="lowest">lowest</option>
           <option value="highest">Highest</option>
