@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "../../css/Cart/Cart.css";
+import Bounce from "react-reveal/Bounce";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
 const Cart = ({ cart, removeFromCart }) => {
   const [showForm, setShowForm] = useState(false);
@@ -19,30 +20,32 @@ const Cart = ({ cart, removeFromCart }) => {
         )}
       </div>
       {/* Modal */}
-
-      <div className="cart-items">
-        {cart.map((product) => {
-          return (
-            <div className="cart-item">
-              <img src={product.imageUrl} alt="" />
-              <div className="cart-info">
-                <div>
-                  <p> title: {product.title} </p>
-                  <p> qty: {product.qty}</p>
-                  <p> price: {product.price}</p>
+      <Bounce bottom cascade>
+        <div className="cart-items">
+          {cart.map((product) => {
+            return (
+              <div className="cart-item">
+                <img src={product.imageUrl} alt="" />
+                <div className="cart-info">
+                  <div>
+                    <p> title: {product.title} </p>
+                    <p> qty: {product.qty}</p>
+                    <p> price: {product.price}</p>
+                  </div>
+                  <button
+                    onClick={() => {
+                      removeFromCart(product);
+                    }}
+                  >
+                    Remove
+                  </button>
                 </div>
-                <button
-                  onClick={() => {
-                    removeFromCart(product);
-                  }}
-                >
-                  Remove
-                </button>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      </Bounce>
+
       {cart.length !== 0 && (
         <div className="cart-footer">
           <div className="total">
