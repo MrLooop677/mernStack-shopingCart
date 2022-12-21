@@ -27,3 +27,6 @@ main {
 .wrapper .filter-wrapper {
   width: 30%;
 }
+button {
+  cursor: pointer;
+}

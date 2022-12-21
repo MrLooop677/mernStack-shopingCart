@@ -1,6 +1,14 @@
 import React from "react";
+import { useState } from "react";
 import "../../css/Cart/Cart.css";
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
 const Cart = ({ cart, removeFromCart }) => {
+  const [showForm, setShowForm] = useState(false);
+  const [ChangeValue, setChangeValue] = useState("");
+  const Handlechange = (e) => {
+    e.preventDefault();
+    console.log(ChangeValue);
+  };
   return (
     <div className="cart-wrapper">
       <div className="cart-title">
@@ -35,8 +43,25 @@ const Cart = ({ cart, removeFromCart }) => {
           );
         })}
       </div>
-
+      {cart.length !== 0 && (
+        <div className="cart-footer">
+          <div className="total">
+            Total :
+            {cart.reduce((acc, p) => {
+              return (acc += p.price * p.qty);
+            }, 0)}{" "}
+          </div>
+          <button onClick={() => setShowForm(true)}> select products </button>
+        </div>
+      )}
       {/* Checkout Form  */}
+      {showForm && (
+        <CheckoutForm
+          setShowForm={setShowForm}
+          Handlechange={Handlechange}
+          setChangeValue={setChangeValue}
+        />
+      )}
     </div>
   );
 };
