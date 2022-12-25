@@ -6,6 +6,8 @@ import data from "./data.json";
 import { useState, useEffect } from "react";
 import Filter from "./components/Filter/Filter";
 import Cart from "./components/Cart/Cart";
+import { Provider } from "react-redux";
+import store from "./store/store";
 function App() {
   const [productData, setProductData] = useState(data);
   const [size, setSize] = useState("");
@@ -64,23 +66,25 @@ function App() {
     localStorage.setItem("cartItem", JSON.stringify(cart));
   }, [cart]);
   return (
-    <div className="layOut">
-      <Header />
-      <main>
-        <div className="wrapper">
-          <Products productData={productData} addToCart={addToCart} />
-          <Filter
-            size={size}
-            order={order}
-            HandleByOrder={HandleByOrder}
-            HandleBySize={HandleBySize}
-            productNumber={productData.length}
-          />
-        </div>
-        <Cart cart={cart} removeFromCart={removeFromCart} />
-      </main>
-      <Footer />
-    </div>
+    <Provider store={store}>
+      <div className="layOut">
+        <Header />
+        <main>
+          <div className="wrapper">
+            <Products productData={productData} addToCart={addToCart} />
+            <Filter
+              size={size}
+              order={order}
+              HandleByOrder={HandleByOrder}
+              HandleBySize={HandleBySize}
+              productNumber={productData.length}
+            />
+          </div>
+          <Cart cart={cart} removeFromCart={removeFromCart} />
+        </main>
+        <Footer />
+      </div>
+    </Provider>
   );
 }
 
